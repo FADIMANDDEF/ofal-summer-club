@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream text-ink font-body antialiased;
+  }
+
+  ::selection {
+    @apply bg-butter-300 text-dolce-800;
+  }
+
+  :focus-visible {
+    outline: 2px solid theme('colors.dolce.500');
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .container-ofal {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Masonry grid via CSS columns — fluide et sans dépendance JS lourde */
+.masonry {
+  column-count: 1;
+  column-gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .masonry { column-count: 2; }
+}
+
+@media (min-width: 1024px) {
+  .masonry { column-count: 3; }
+}
+
+@media (min-width: 1400px) {
+  .masonry { column-count: 4; }
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.PhotoView-Slider__BannerWrap {
+  background-color: rgba(16, 42, 54, 0.92) !important;
+}
